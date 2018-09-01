@@ -1,15 +1,18 @@
 <template>
-  <div class="home">
+  <div class="top">
     <div v-for="item in listItems" :key="item.id">
-      <router-link :to="'/item/' + item.id">{{ item.title }}</router-link>
+      <single-item v-bind:item="item"></single-item>
     </div>
   </div>
 </template>
 
 <script>
+import SingleItem from "@/components/SingleItem";
 export default {
-  name: "home",
-  components: {},
+  name: "top",
+  components: {
+    SingleItem
+  },
   created: function() {
     this.$store.dispatch("GET_LIST_ITEMS");
   },
