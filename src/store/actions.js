@@ -7,7 +7,8 @@ export default {
     }
 
     const itemsId = await getItemsTop();
-    const items = await fetchItems(itemsId);
+    // Get last 30 items
+    const items = await fetchItems(itemsId.slice(0, 30));
     commit("SET_ITEMS", { items });
     return items;
   },

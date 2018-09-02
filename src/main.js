@@ -20,6 +20,12 @@ Vue.use(VueProgressBar, {
 const instance = new Vue({
   router,
   store,
+  beforeCreate() {
+    // Start progress bar, except for static about page
+    if (!new RegExp("about").test(this.$router.currentRoute.name)) {
+      this.$Progress.start();
+    }
+  },
   render: h => h(App)
 }).$mount("#app");
 

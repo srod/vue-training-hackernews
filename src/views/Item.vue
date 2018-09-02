@@ -9,10 +9,6 @@
 export default {
   name: "item",
 
-  // created: function() {
-  //   console.log("====this.$router.id", this.$route.params.id);
-  // },
-
   computed: {
     item() {
       return this.$store.state.items[this.$route.params.id];
