@@ -1,11 +1,12 @@
 <template>
-  <div class="item">
-    {{item.score}}
-    <a v-bind:href="item.url" target="_blank">{{ item.title }}</a><br> by:
+  <li class="list__item">
+    <a v-bind:href="item.url" target="_blank" class="list__title">{{ item.title }}</a>
+    <br> {{item.score}} points by:
     <router-link :to="'/user/' + item.by">{{item.by}}</router-link> -
     <router-link :to="'/item/' + item.id">{{item.descendants}} comments</router-link>
-  </div>
+  </li>
 </template>
+
 <script>
 export default {
   name: "single-item",
@@ -14,12 +15,20 @@ export default {
   }
 };
 </script>
+
 <style lang="scss" scoped>
-.item {
-  display: block;
-  margin: 1px;
-  padding: 5px;
-  background: #f6f6f6;
-  text-align: left;
+.list {
+  &__item {
+    display: block;
+    position: relative;
+    margin: 1px;
+    padding: 15px 0;
+    text-align: left;
+    border-bottom: 1px solid $grey;
+  }
+
+  &__title {
+    font-weight: bold;
+  }
 }
 </style>

@@ -1,29 +1,37 @@
 <template>
-  <div id="app">
-    <div id="nav">
+  <div class="app">
+    <div class="nav">
       <router-link to="/top">Top</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <router-view/>
+    <div class="container">
+      <router-view/>
+    </div>
   </div>
 </template>
 
 <style lang="scss">
-#app {
+@import "scss/colors";
+
+.app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: $primary;
 }
-#nav {
+.nav {
   padding: 30px;
   a {
     font-weight: bold;
-    color: #2c3e50;
+    color: $primary;
     &.router-link-exact-active {
-      color: #42b983;
+      color: $secondary;
     }
   }
+}
+.container {
+  margin: 0 auto;
+  max-width: 650px;
 }
 </style>

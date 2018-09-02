@@ -1,9 +1,7 @@
 <template>
-  <div class="top">
-    <div v-for="item in listItems" :key="item.id">
-      <single-item v-bind:item="item"></single-item>
-    </div>
-  </div>
+  <ul class="list">
+    <single-item v-for="item in listItems" :key="item.id" v-bind:item="item"></single-item>
+  </ul>
 </template>
 
 <script>
@@ -24,3 +22,10 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.list {
+  margin: 0;
+  padding: 0;
+}
+</style>
