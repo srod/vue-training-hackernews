@@ -1,4 +1,4 @@
-import { fetchItems, fetchUser, getItemsTop } from "@/api";
+import { fetchItem, fetchItems, fetchUser, getItemsTop } from "@/api";
 
 export default {
   GET_LIST_ITEMS: async ({ commit, state }) => {
@@ -11,6 +11,16 @@ export default {
     const items = await fetchItems(itemsId.slice(0, 30));
     commit("SET_ITEMS", { items });
     return items;
+  },
+
+  GET_ITEM: async ({ commit, state }, { id }) => {
+    if (state.items[id]) {
+      return state.items[id];
+    }
+
+    const item = await fetchItem(id);
+    commit("SET_ITEM", { item });
+    return item;
   },
 
   GET_USER: async ({ commit, state }, { id }) => {

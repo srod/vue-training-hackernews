@@ -1,21 +1,21 @@
 import Vue from "vue";
 import VueProgressBar from "vue-progressbar";
+import VueTimeago from "vue-timeago";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import "./registerServiceWorker";
-import { formatDate } from "./utils/filters";
 import "./scss/global.scss";
 
 Vue.config.productionTip = false;
-
-Vue.filter("formatDate", formatDate);
 
 Vue.use(VueProgressBar, {
   color: "#1d4851",
   failedColor: "red",
   height: "2px"
 });
+
+Vue.use(VueTimeago);
 
 const instance = new Vue({
   router,

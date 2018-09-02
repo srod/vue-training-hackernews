@@ -2,7 +2,8 @@
   <div class="user" v-if="user.id">
     <h1>{{user.id}}</h1>
     <h2 class="intro">
-      <strong>{{user.id}}</strong> created his account on {{user.created | formatDate}} and has {{user.karma}} karma
+      <strong>{{user.id}}</strong> created his account
+      <timeago class="item__date" :datetime="Number(user.created * 1000)" :auto-update="60"></timeago> and has {{user.karma}} karma
     </h2>
     <p class="about" v-html="user.about"></p>
   </div>
