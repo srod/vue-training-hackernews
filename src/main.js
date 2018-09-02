@@ -3,8 +3,11 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import "./registerServiceWorker";
+import { formatDate } from "./utils/filters";
 
 Vue.config.productionTip = false;
+
+Vue.filter("formatDate", formatDate);
 
 import "./scss/global.scss";
 

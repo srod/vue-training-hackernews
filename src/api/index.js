@@ -3,14 +3,6 @@ import axios from "axios";
 const baseURL = "https://hacker-news.firebaseio.com/v0";
 
 /**
- * Get all items on `Top` page
- */
-export async function getItemsTop() {
-  const items = await axios.get(`${baseURL}/topstories.json`);
-  return items.data;
-}
-
-/**
  * Fetch an item based on its `id`
  * @param {number} id
  */
@@ -26,4 +18,21 @@ export async function fetchItem(id) {
  */
 export async function fetchItems(ids) {
   return await Promise.all(ids.map(id => fetchItem(id)));
+}
+
+/**
+ * Fetch a user based on its `id`
+ * @param {string} id
+ */
+export async function fetchUser(id) {
+  const user = await axios.get(`${baseURL}/user/${id}.json`);
+  return user.data;
+}
+
+/**
+ * Get all items on `Top` page
+ */
+export async function getItemsTop() {
+  const items = await axios.get(`${baseURL}/topstories.json`);
+  return items.data;
 }

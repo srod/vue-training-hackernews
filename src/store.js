@@ -8,7 +8,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     list: [],
-    items: {}
+    items: {},
+    users: {}
   },
   mutations: mutations,
   actions: actions
