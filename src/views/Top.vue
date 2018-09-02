@@ -5,18 +5,23 @@
 </template>
 
 <script>
+import store from "@/store";
 import SingleItem from "@/components/SingleItem";
+
 export default {
   name: "top",
+
   components: {
     SingleItem
   },
-  created: function() {
-    this.$store.dispatch("GET_LIST_ITEMS");
+
+  beforeRouteEnter: async function(to, from, next) {
+    await store.dispatch("GET_LIST_ITEMS");
+    next();
   },
+
   computed: {
     listItems() {
-      // console.log("this.$store.list", this.$store.state.list);
       return this.$store.state.list;
     }
   }
