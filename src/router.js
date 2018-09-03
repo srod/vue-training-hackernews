@@ -14,6 +14,21 @@ export default new Router({
       component: () => import(/* webpackChunkName: "top" */ "./views/Top.vue")
     },
     {
+      path: "/new",
+      name: "new",
+      component: () => import(/* webpackChunkName: "new" */ "./views/New.vue")
+    },
+    {
+      path: "/show",
+      name: "show",
+      component: () => import(/* webpackChunkName: "show" */ "./views/Show.vue")
+    },
+    {
+      path: "/ask",
+      name: "ask",
+      component: () => import(/* webpackChunkName: "ask" */ "./views/Ask.vue")
+    },
+    {
       path: "/item/:id",
       name: "item",
       component: () => import(/* webpackChunkName: "item" */ "./views/Item.vue")

@@ -30,9 +30,9 @@ export async function fetchUser(id) {
 }
 
 /**
- * Get all items on `Top` page
+ * Get all items on `type` page
  */
-export async function getItemsTop() {
-  const items = await axios.get(`${baseURL}/topstories.json`);
+export async function getItems(type) {
+  const items = await axios.get(`${baseURL}/${type}stories.json`);
   return items.data;
 }

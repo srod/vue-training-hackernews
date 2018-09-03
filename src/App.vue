@@ -2,6 +2,9 @@
   <div class="app">
     <div class="nav">
       <router-link to="/top">Top</router-link> |
+      <router-link to="/new">New</router-link> |
+      <router-link to="/show">Show</router-link> |
+      <router-link to="/ask">Ask</router-link> |
       <router-link to="/about">About</router-link>
     </div>
     <div class="container">

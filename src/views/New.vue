@@ -9,14 +9,14 @@ import store from "@/store";
 import SingleItem from "@/components/SingleItem";
 
 export default {
-  name: "top",
+  name: "new",
 
   components: {
     SingleItem
   },
 
   beforeRouteEnter: async function(to, from, next) {
-    await store.dispatch("GET_LIST_ITEMS", { type: "top" });
+    await store.dispatch("GET_LIST_ITEMS", { type: "new" });
     next();
   },
 
