@@ -23,9 +23,9 @@ export default {
     return item;
   },
 
-  GET_ITEMS: async ({ commit }, { ids }) => {
-    // TODO: fetch only ids that are not already fetched
-    const items = await fetchItems(ids);
+  GET_ITEMS: async ({ commit, state }, { ids }) => {
+    const idsNotFetched = ids.filter(id => !state.items[id]);
+    const items = await fetchItems(idsNotFetched);
     commit("SET_ITEMS", { items });
     return items;
   },

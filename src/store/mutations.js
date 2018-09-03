@@ -8,7 +8,7 @@ export default {
 
   SET_ITEMS: (state, { items }) => {
     for (const item of items) {
-      if (!item.deleted) {
+      if (item && !item.deleted) {
         state.items[item.id] = item;
       }
     }
