@@ -9,22 +9,22 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: "/top",
+      path: "/top/:page?",
       name: "top",
       component: () => import(/* webpackChunkName: "top" */ "./views/Top.vue")
     },
     {
-      path: "/new",
+      path: "/new/:page?",
       name: "new",
       component: () => import(/* webpackChunkName: "new" */ "./views/New.vue")
     },
     {
-      path: "/show",
+      path: "/show/:page?",
       name: "show",
       component: () => import(/* webpackChunkName: "show" */ "./views/Show.vue")
     },
     {
-      path: "/ask",
+      path: "/ask/:page?",
       name: "ask",
       component: () => import(/* webpackChunkName: "ask" */ "./views/Ask.vue")
     },

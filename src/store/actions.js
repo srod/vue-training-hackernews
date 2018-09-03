@@ -1,17 +1,11 @@
 import { fetchItem, fetchItems, fetchUser, getItems } from "@/api";
 
 export default {
-  GET_LIST_ITEMS: async ({ commit, state }, { type }) => {
-    let itemsId = await getItems(type);
-    // Get last 30 items
-    itemsId = itemsId.slice(0, 30);
+  GET_LIST_ITEMS: async ({ commit, state }) => {
+    const { type } = state;
+    const itemsId = await getItems(type);
 
-    const idsNotFetched = itemsId.filter(id => !state.items[id]);
-    const items = await fetchItems(idsNotFetched);
-    commit("SET_ITEMS", { items });
-
-    commit("SET_LIST_ITEMS", { itemsId });
-    return itemsId;
+    commit("SET_LIST_ITEMS", { itemsId, type });
   },
 
   GET_ITEM: async ({ commit, state }, { id }) => {
@@ -24,8 +18,9 @@ export default {
     return item;
   },
 
-  GET_ITEMS: async ({ commit, state }, { ids }) => {
-    const idsNotFetched = ids.filter(id => !state.items[id]);
+  GET_ITEMS: async ({ commit, getters, state }, { ids }) => {
+    const idsToProcess = ids || getters.getActiveIds;
+    const idsNotFetched = idsToProcess.filter(id => !state.items[id]);
     const items = await fetchItems(idsNotFetched);
     commit("SET_ITEMS", { items });
     return items;

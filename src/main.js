@@ -36,6 +36,9 @@ router.beforeEach((to, from, next) => {
   next();
 });
 
-router.afterEach(() => {
-  instance.$Progress.finish();
+router.afterEach(to => {
+  // Don't finish for pages, function `loadItems` will do it
+  if (!to.params.page) {
+    instance.$Progress.finish();
+  }
 });
