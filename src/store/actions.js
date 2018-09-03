@@ -9,7 +9,7 @@ export default {
     const itemsId = await getItemsTop();
     // Get last 30 items
     const items = await fetchItems(itemsId.slice(0, 30));
-    commit("SET_ITEMS", { items });
+    commit("SET_LIST_ITEMS", { items });
     return items;
   },
 
@@ -21,6 +21,13 @@ export default {
     const item = await fetchItem(id);
     commit("SET_ITEM", { item });
     return item;
+  },
+
+  GET_ITEMS: async ({ commit }, { ids }) => {
+    // TODO: fetch only ids that are not already fetched
+    const items = await fetchItems(ids);
+    commit("SET_ITEMS", { items });
+    return items;
   },
 
   GET_USER: async ({ commit, state }, { id }) => {

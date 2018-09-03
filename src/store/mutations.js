@@ -1,8 +1,16 @@
 export default {
-  SET_ITEMS: (state, { items }) => {
+  SET_LIST_ITEMS: (state, { items }) => {
     state.list = items;
     for (const item of items) {
       state.items[item.id] = item;
+    }
+  },
+
+  SET_ITEMS: (state, { items }) => {
+    for (const item of items) {
+      if (!item.deleted) {
+        state.items[item.id] = item;
+      }
     }
   },
 
